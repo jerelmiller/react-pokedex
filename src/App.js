@@ -1,13 +1,8 @@
-import React, { Component } from 'react'
-import logo from './logo.svg'
+import React from 'react'
 import './App.css'
 
-class App extends Component {
-  render() {
-    return (
-      <div>Hello Pokemon</div>
-    )
-  }
-}
+const App = () => (
+  <div>Hello Pokemon</div>
+)
 
 export default App
