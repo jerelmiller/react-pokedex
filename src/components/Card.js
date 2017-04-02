@@ -4,7 +4,7 @@ import GridItem from './GridItem'
 const Card = styled(GridItem)`
   display: flex;
   flex-direction: column;
-  flex: 1 24%;
+  flex: 0 24%;
   background: #fff;
   box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.25);
   margin: 0.5%;
