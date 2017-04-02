@@ -6,6 +6,7 @@ import {
   createNetworkInterface,
   ApolloProvider
 } from 'react-apollo'
+import { BrowserRouter as Router } from 'react-router-dom'
 import 'normalize.css'
 import './index.css'
 
@@ -16,8 +17,10 @@ const networkInterface = createNetworkInterface({
 const client = new ApolloClient({ networkInterface })
 
 render(
-  <ApolloProvider client={ client }>
-    <App />
-  </ApolloProvider>,
+  <Router>
+    <ApolloProvider client={ client }>
+      <App />
+    </ApolloProvider>
+  </Router>,
   document.getElementById('root')
 )
