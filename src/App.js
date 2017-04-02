@@ -29,7 +29,7 @@ App.propTypes = {
 
 export default graphql(gql`
   query GetPokemons {
-    pokemons(first: 18) {
+    pokemons(first: 151) {
       id
       ...PokemonCard
     }
