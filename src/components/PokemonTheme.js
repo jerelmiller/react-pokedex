@@ -61,6 +61,10 @@ const themes = {
   dragon: {
     primary: '#5C6BC0',
     text: '#fff'
+  },
+  flying: {
+    primary: '#2962FF',
+    text: '#fff'
   }
 }
 
