@@ -21,7 +21,6 @@ const Pokemon = ({ data: { loading, pokemon }}) => {
     resistant,
     evolutions,
     maxHP,
-    maxCP,
     weaknesses,
     attacks
   } = pokemon
@@ -49,8 +48,6 @@ const Pokemon = ({ data: { loading, pokemon }}) => {
           <dd>{ resistant.join(', ') }</dd>
           <dt>Max HP</dt>
           <dd>{ maxHP }</dd>
-          <dt>Max CP</dt>
-          <dd>{ maxCP }</dd>
           <dt>Weaknesses</dt>
           <dd>{ weaknesses.join(', ') }</dd>
           <dt>Fast Attacks</dt>
@@ -86,7 +83,6 @@ const pokemonQuery = gql`
       types
       resistant
       maxHP
-      maxCP
       weaknesses
       weight {
         minimum
