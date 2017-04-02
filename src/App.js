@@ -1,3 +1,5 @@
+import Grid from './components/Grid'
+import PokemonCard from './components/PokemonCard'
 import React, { PropTypes } from 'react'
 import { gql, graphql } from 'react-apollo'
 import './App.css'
@@ -8,13 +10,12 @@ const App = ({ loading, data: { pokemons = [] }}) => {
   }
 
   return (
-    <div>
-      { pokemons.map(pokemon =>
-        <div key={ pokemon.number }>
-          { pokemon.number } { pokemon.name }
-          <img src={ pokemon.image } alt={ pokemon.name } />
-        </div>
-      )}
+    <div style={{ width: '80%', margin: '0 auto' }}>
+      <Grid>
+        { pokemons.map(pokemon =>
+          <PokemonCard key={ pokemon.id } pokemon={ pokemon } />
+        )}
+      </Grid>
     </div>
   )
 }
@@ -28,10 +29,10 @@ App.propTypes = {
 
 export default graphql(gql`
   query GetPokemons {
-    pokemons(first: 10) {
-      number
-      name
-      image
+    pokemons(first: 18) {
+      id
+      ...PokemonCard
     }
   }
+  ${PokemonCard.fragments.pokemon}
 `)(App)
