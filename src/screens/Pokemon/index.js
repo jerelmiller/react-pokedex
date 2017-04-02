@@ -11,7 +11,9 @@ const Pokemon = ({ data: { loading, pokemon }}) => {
 
   return (
     <div>
-      <Header title={ pokemon.name } pokemonType={ pokemon.types[0] } />
+      <Header pokemonType={ pokemon.types[0] }>
+        { pokemon.name }
+      </Header>
       <Container>
         <img src={ pokemon.image } alt={ pokemon.name } />
       </Container>

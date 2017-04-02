@@ -60,7 +60,7 @@ const BackButton = styled(Link)`
   }
 `
 
-const Header = ({ title, pokemonType }) => (
+const Header = ({ children, pokemonType }) => (
   <PokemonTheme type={ pokemonType }>
     <ThemedHeader>
       <BackButton to='/pokemon'>
@@ -69,7 +69,7 @@ const Header = ({ title, pokemonType }) => (
           color={ themeFromType(pokemonType).text }
         />
       </BackButton>
-      <Heading>{ title }</Heading>
+      <Heading>{children}</Heading>
     </ThemedHeader>
   </PokemonTheme>
 )
