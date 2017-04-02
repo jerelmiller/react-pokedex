@@ -17,10 +17,10 @@ const networkInterface = createNetworkInterface({
 const client = new ApolloClient({ networkInterface })
 
 render(
-  <Router>
-    <ApolloProvider client={ client }>
+  <ApolloProvider client={ client }>
+    <Router>
       <App />
-    </ApolloProvider>
-  </Router>,
+    </Router>
+  </ApolloProvider>,
   document.getElementById('root')
 )
