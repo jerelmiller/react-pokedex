@@ -1,14 +1,9 @@
 import Grid from 'components/Grid'
-import PokemonCard from 'components/PokemonCard'
+import PokemonCard from './components/PokemonCard'
+import Container from './components/Container'
 import React, { PropTypes } from 'react'
 import Spinner from 'components/Spinner'
-import styled from 'styled-components'
 import { gql, graphql } from 'react-apollo'
-
-const PokemonContainer = styled.div`
-  width: 80%;
-  margin: 0 auto;
-`
 
 const Home = ({ data: { loading, pokemons }}) => {
   if (loading) {
@@ -16,13 +11,13 @@ const Home = ({ data: { loading, pokemons }}) => {
   }
 
   return (
-    <PokemonContainer>
+    <Container>
       <Grid>
         { pokemons.map(pokemon =>
           <PokemonCard key={ pokemon.id } pokemon={ pokemon } />
         )}
       </Grid>
-    </PokemonContainer>
+    </Container>
   )
 }
 

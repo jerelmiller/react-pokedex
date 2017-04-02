@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 import { gql } from 'react-apollo'
-import Card from './Card'
-import CardImage from './CardImage'
-import CardInfo from './CardInfo'
+import CardLink from 'components/CardLink'
+import CardImage from 'components/CardImage'
+import CardInfo from 'components/CardInfo'
 import styled, { ThemeProvider } from 'styled-components'
 
 const themes = {
@@ -85,7 +85,7 @@ const PokemonImageContainer = styled.div`
 
 const PokemonCard = ({ pokemon }) => (
   <ThemeProvider theme={ themeFromType(pokemon.types[0]) }>
-    <Card>
+    <CardLink to={ `/pokemon/${pokemon.id}` }>
       <PokemonImageContainer>
         <CardImage src={ pokemon.image } alt={ pokemon.name } />
       </PokemonImageContainer>
@@ -93,13 +93,14 @@ const PokemonCard = ({ pokemon }) => (
         <PokemonName>{ pokemon.name }</PokemonName>
         <PokemonNumber>#{ pokemon.number }</PokemonNumber>
       </PokemonInfo>
-    </Card>
+    </CardLink>
   </ThemeProvider>
 )
 
 PokemonCard.fragments = {
   pokemon: gql`
     fragment PokemonCard on Pokemon {
+      id
       number
       name
       image
