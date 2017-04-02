@@ -2,7 +2,7 @@ import PokemonTheme from 'components/PokemonTheme'
 import React from 'react'
 import styled from 'styled-components'
 
-const StyledHeader = styled.header`
+const ThemedHeader = styled.header`
   background: ${({ theme }) => theme.primary}
   color: ${({ theme }) => theme.text}
   padding: 1.5rem;
@@ -41,9 +41,9 @@ const Heading = styled.h2`
 
 const Header = ({ title, pokemonType }) => (
   <PokemonTheme type={ pokemonType }>
-    <StyledHeader>
+    <ThemedHeader>
       <Heading>{ title }</Heading>
-    </StyledHeader>
+    </ThemedHeader>
   </PokemonTheme>
 )
 
