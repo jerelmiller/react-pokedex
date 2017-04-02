@@ -79,6 +79,8 @@ const PokemonNumber = styled.div`
 
 const PokemonImageContainer = styled.div`
   padding: 1rem;
+  margin-top: auto;
+  align-self: center;
 `
 
 const PokemonCard = ({ pokemon }) => (
