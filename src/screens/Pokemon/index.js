@@ -1,3 +1,5 @@
+import Container from 'components/Container'
+import Header from './components/Header'
 import React, { PropTypes } from 'react'
 import Spinner from 'components/Spinner'
 import { gql, graphql } from 'react-apollo'
@@ -8,7 +10,12 @@ const Pokemon = ({ data: { loading, pokemon }}) => {
   }
 
   return (
-    <div>{ pokemon.name }</div>
+    <div>
+      <Header title={ pokemon.name } pokemonType={ pokemon.types[0] } />
+      <Container>
+        { pokemon.name }
+      </Container>
+    </div>
   )
 }
 
@@ -23,6 +30,7 @@ const pokemonQuery = gql`
   query GetPokemon($id: String) {
     pokemon(id: $id) {
       name
+      types
     }
   }
 `
