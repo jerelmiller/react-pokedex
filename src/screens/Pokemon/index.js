@@ -13,7 +13,7 @@ const Pokemon = ({ data: { loading, pokemon }}) => {
     <div>
       <Header title={ pokemon.name } pokemonType={ pokemon.types[0] } />
       <Container>
-        { pokemon.name }
+        <img src={ pokemon.image } alt={ pokemon.name } />
       </Container>
     </div>
   )
@@ -29,6 +29,7 @@ Pokemon.propTypes = {
 const pokemonQuery = gql`
   query GetPokemon($id: String) {
     pokemon(id: $id) {
+      image
       name
       types
     }
