@@ -1,3 +1,4 @@
+import Container from 'components/Container'
 import Grid from 'components/Grid'
 import PokemonCard from './components/PokemonCard'
 import React, { PropTypes } from 'react'
@@ -10,11 +11,13 @@ const Home = ({ data: { loading, pokemons }}) => {
   }
 
   return (
-    <Grid>
-      { pokemons.map(pokemon =>
-        <PokemonCard key={ pokemon.id } pokemon={ pokemon } />
-      )}
-    </Grid>
+    <Container>
+      <Grid>
+        { pokemons.map(pokemon =>
+          <PokemonCard key={ pokemon.id } pokemon={ pokemon } />
+        )}
+      </Grid>
+    </Container>
   )
 }
 
