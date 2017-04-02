@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import GridItem from './GridItem'
 
-const Card = styled(GridItem)`
+const Card = styled.div`
   display: flex;
   flex-direction: column;
   flex: 0 24%;
