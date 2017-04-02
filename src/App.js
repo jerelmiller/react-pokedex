@@ -1,12 +1,13 @@
 import Grid from './components/Grid'
 import PokemonCard from './components/PokemonCard'
 import React, { PropTypes } from 'react'
+import Spinner from './components/Spinner'
 import { gql, graphql } from 'react-apollo'
 import './App.css'
 
-const App = ({ loading, data: { pokemons = [] }}) => {
+const App = ({ data: { loading, pokemons }}) => {
   if (loading) {
-    return <div>Loading...</div>
+    return <Spinner size={ 80 } />
   }
 
   return (
