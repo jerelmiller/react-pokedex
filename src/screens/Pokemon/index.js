@@ -10,6 +10,13 @@ import Grid from 'components/Grid'
 import { gql, graphql } from 'react-apollo'
 import styled from 'styled-components'
 
+const MAX_ATTACK = 150
+const MAX_DEFENSE = 200
+const MAX_HP = 275
+const MAX_SPEED = 150
+const MAX_SPECIAL_ATTACK = 175
+const MAX_SPECIAL_DEFENSE = 150
+
 const StatContainer = styled.div`
   display: flex;
   margin-bottom: 1.5rem;
@@ -30,6 +37,10 @@ const Pokemon = ({ data: { loading, pokemon }}) => {
     resistant,
     evolutions,
     hp,
+    defense,
+    speed,
+    specialDefense,
+    specialAttack,
     weaknesses
   } = pokemon
 
@@ -45,12 +56,28 @@ const Pokemon = ({ data: { loading, pokemon }}) => {
             <TypeLabel key={ type } type={ type } />
           )}
           <StatContainer>
-            <label>HP</label>
-            <StatCounter max={ 3000 } value={ hp } width={ '80%' } />
+            <label>Attack</label>
+            <StatCounter max={ MAX_ATTACK } value={ attack } width={ '80%' } />
           </StatContainer>
           <StatContainer>
-            <label>Attack</label>
-            <StatCounter max={ 3000 } value={ attack } width={ '80%' } />
+            <label>Defense</label>
+            <StatCounter max={ MAX_DEFENSE } value={ defense } width={ '80%' } />
+          </StatContainer>
+          <StatContainer>
+            <label>HP</label>
+            <StatCounter max={ MAX_HP } value={ hp } width={ '80%' } />
+          </StatContainer>
+          <StatContainer>
+            <label>Speed</label>
+            <StatCounter max={ MAX_SPEED } value={ speed } width={ '80%' } />
+          </StatContainer>
+          <StatContainer>
+            <label>Special Attack</label>
+            <StatCounter max={ MAX_SPECIAL_ATTACK } value={ specialAttack } width={ '80%' } />
+          </StatContainer>
+          <StatContainer>
+            <label>Special Defense</label>
+            <StatCounter max={ MAX_SPECIAL_DEFENSE } value={ specialDefense } width={ '80%' } />
           </StatContainer>
           <dl>
             <dt>Weight</dt>
@@ -88,11 +115,15 @@ const pokemonQuery = gql`
   query GetPokemon($id: ID!) {
     pokemon(id: $id) {
       attack
+      defense
+      hp
+      speed
+      specialDefense
+      specialAttack
       image
       name
       types
       weaknesses
-      hp
       weight(unit: KILOGRAM)
       height(unit: METER)
       evolutions {
