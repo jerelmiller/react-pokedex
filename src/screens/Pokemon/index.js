@@ -1,3 +1,4 @@
+import FlexContainer from 'components/FlexContainer'
 import Header from './components/Header'
 import PageContent from 'components/PageContent'
 import PokemonCard from 'screens/Home/components/PokemonCard'
@@ -8,6 +9,40 @@ import Spinner from 'components/Spinner'
 import TypeLabel from 'components/TypeLabel'
 import Grid from 'components/Grid'
 import { gql, graphql } from 'react-apollo'
+import styled from 'styled-components'
+
+const PokemonImg = styled.img`
+  max-width: 250px;
+  flex: 1;
+  margin-right: 2%;
+`
+
+const PokemonInfoContainer = styled.section`
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+`
+
+const PokemonInfo = styled.div`
+  border-right: 1px solid #ddd;
+  padding: 20px;
+  flex: 1;
+  text-align: center;
+`
+
+const InfoLabel = styled.label`
+  display: block;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: 0.5rem;
+  color: #666;
+`
+
+const Data = styled.span`
+  font-weight: 700;
+  font-size: 1.5rem;
+`
 
 const Pokemon = ({ data: { loading, pokemon }}) => {
   if (loading) {
@@ -27,7 +62,8 @@ const Pokemon = ({ data: { loading, pokemon }}) => {
     speed,
     specialDefense,
     specialAttack,
-    weaknesses
+    weaknesses,
+    description
   } = pokemon
 
   return (
@@ -37,28 +73,30 @@ const Pokemon = ({ data: { loading, pokemon }}) => {
           { name }
         </Header>
         <PageContent>
-          <img src={ image } alt={ name } />
-          { types.map(type =>
-            <TypeLabel key={ type } type={ type } />
-          )}
+          <FlexContainer>
+            <PokemonImg src={ image } alt={ name } />
+            <PokemonInfoContainer>
+              <PokemonInfo>
+                <Data>{ height } m</Data>
+                <InfoLabel>Height</InfoLabel>
+              </PokemonInfo>
+              <PokemonInfo>
+                <Data>{ weight } kg</Data>
+                <InfoLabel>Weight</InfoLabel>
+              </PokemonInfo>
+            </PokemonInfoContainer>
+          </FlexContainer>
+          <div>{ description }</div>
           <Stat name='attack' value={ attack } />
           <Stat name='defense' value={ defense } />
           <Stat name='hp' value={ hp } />
           <Stat name='speed' value={ speed } />
           <Stat name='specialAttack' value={ specialAttack } />
           <Stat name='specialDefense' value={ specialDefense } />
-          <dl>
-            <dt>Weight</dt>
-            <dd>{ weight }</dd>
-            <dt>Height</dt>
-            <dd>{ height }</dd>
-            <dt>Weaknesses</dt>
-            <dd>
-              { weaknesses.map(type =>
-                <TypeLabel key={ type } type={ type } />
-              )}
-            </dd>
-          </dl>
+
+          { weaknesses.map(type =>
+            <TypeLabel key={ type } type={ type } />
+          )}
 
           <h1>Evolutions</h1>
           <Grid>
@@ -92,6 +130,7 @@ const pokemonQuery = gql`
       name
       types
       weaknesses
+      description
       weight(unit: KILOGRAM)
       height(unit: METER)
       evolutions {

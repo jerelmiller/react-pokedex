@@ -8,6 +8,8 @@ const Label = styled.span`
   color: ${({ theme }) => theme.text}
   border-radius: 2px;
   font-size: 0.8rem;
+  text-transform: uppercase;
+  margin-right: 5px;
 `
 
 const TypeLabel = ({ type }) => (
