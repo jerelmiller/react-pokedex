@@ -8,7 +8,6 @@ import Spinner from 'components/Spinner'
 import TypeLabel from 'components/TypeLabel'
 import Grid from 'components/Grid'
 import { gql, graphql } from 'react-apollo'
-import styled from 'styled-components'
 
 const Pokemon = ({ data: { loading, pokemon }}) => {
   if (loading) {
@@ -22,7 +21,6 @@ const Pokemon = ({ data: { loading, pokemon }}) => {
     types,
     weight,
     height,
-    resistant,
     evolutions,
     hp,
     defense,
