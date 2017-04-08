@@ -93,8 +93,8 @@ const pokemonQuery = gql`
       types
       weaknesses
       hp
-      weight
-      height
+      weight(unit: KILOGRAM)
+      height(unit: METER)
       evolutions {
         id
         ...PokemonCard
