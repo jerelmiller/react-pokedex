@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 const ThemedHeader = styled.header`
   background: ${({ theme }) => theme.primary}
   color: ${({ theme }) => theme.text}
-  padding: 1.5rem;
   position: relative;
+  height: 4.5rem;
 
   &:after, &:before {
     content: '';
@@ -32,19 +32,11 @@ const ThemedHeader = styled.header`
   }
 `
 
-const Heading = styled.h2`
-  font-weight: 700;
-  margin: 0;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-align: center;
-`
-
 const CloseButton = styled(Link)`
   color: ${({ theme }) => theme.text}
   position: absolute;
-  right: 1.5rem;
   top: 1.5rem;
+  right: 1.5rem;
   font-weight: 300;
   line-height: 1rem;
   display: block;
@@ -55,7 +47,6 @@ const CloseButton = styled(Link)`
 const Header = ({ children, pokemonType }) => (
   <PokemonTheme type={ pokemonType }>
     <ThemedHeader>
-      <Heading>{children}</Heading>
       <CloseButton to='/pokemon'>
         &times;
       </CloseButton>

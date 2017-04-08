@@ -69,10 +69,12 @@ const Pokemon = ({ data: { loading, pokemon }}) => {
   return (
     <PokemonTheme type={ types[0] }>
       <div>
-        <Header pokemonType={ types[0] }>
-          { name }
-        </Header>
+        <Header pokemonType={ types[0] } />
         <PageContent>
+          <h1>{ name }</h1>
+          { types.map(type =>
+            <TypeLabel key={ type } type={ type } />
+          )}
           <FlexContainer>
             <PokemonImg src={ image } alt={ name } />
             <PokemonInfoContainer>
