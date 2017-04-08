@@ -17,16 +17,18 @@ const PokemonImg = styled.img`
   margin-right: 2%;
 `
 
-const PokemonInfoContainer = styled.section`
+const PokemonInfoContainer = styled.div`
   flex: 2;
+`
+
+const PokemonDataContainer = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  margin-bottom: 1.5rem;
 `
 
 const PokemonInfo = styled.div`
-  border-right: 1px solid #ddd;
-  padding: 20px;
   flex: 1;
   text-align: center;
 `
@@ -44,6 +46,15 @@ const Data = styled.span`
   font-size: 1.5rem;
 `
 
+const Name = styled.div`
+  text-align: center;
+  margin-bottom: 1.5rem;
+`
+
+const Stats = styled.div`
+  margin-top: 1.5rem;
+`
+
 const Pokemon = ({ data: { loading, pokemon }}) => {
   if (loading) {
     return <Spinner />
@@ -52,6 +63,7 @@ const Pokemon = ({ data: { loading, pokemon }}) => {
   const {
     attack,
     name,
+    number,
     image,
     types,
     weight,
@@ -71,30 +83,37 @@ const Pokemon = ({ data: { loading, pokemon }}) => {
       <div>
         <Header pokemonType={ types[0] } />
         <PageContent>
-          <h1>{ name }</h1>
-          { types.map(type =>
-            <TypeLabel key={ type } type={ type } />
-          )}
           <FlexContainer>
             <PokemonImg src={ image } alt={ name } />
             <PokemonInfoContainer>
-              <PokemonInfo>
-                <Data>{ height } m</Data>
-                <InfoLabel>Height</InfoLabel>
-              </PokemonInfo>
-              <PokemonInfo>
-                <Data>{ weight } kg</Data>
-                <InfoLabel>Weight</InfoLabel>
-              </PokemonInfo>
+              <Name>
+                <h1>#{ number } { name }</h1>
+                { types.map(type =>
+                  <TypeLabel key={ type } type={ type } />
+                )}
+              </Name>
+              <PokemonDataContainer>
+                <PokemonInfo>
+                  <Data>{ height } m</Data>
+                  <InfoLabel>Height</InfoLabel>
+                </PokemonInfo>
+                <PokemonInfo>
+                  <Data>{ weight } kg</Data>
+                  <InfoLabel>Weight</InfoLabel>
+                </PokemonInfo>
+              </PokemonDataContainer>
+              <p>{ description }</p>
             </PokemonInfoContainer>
           </FlexContainer>
-          <div>{ description }</div>
-          <Stat name='attack' value={ attack } />
-          <Stat name='defense' value={ defense } />
-          <Stat name='hp' value={ hp } />
-          <Stat name='speed' value={ speed } />
-          <Stat name='specialAttack' value={ specialAttack } />
-          <Stat name='specialDefense' value={ specialDefense } />
+
+          <Stats>
+            <Stat name='attack' value={ attack } />
+            <Stat name='defense' value={ defense } />
+            <Stat name='hp' value={ hp } />
+            <Stat name='speed' value={ speed } />
+            <Stat name='specialAttack' value={ specialAttack } />
+            <Stat name='specialDefense' value={ specialDefense } />
+          </Stats>
 
           { weaknesses.map(type =>
             <TypeLabel key={ type } type={ type } />
@@ -135,6 +154,7 @@ const pokemonQuery = gql`
       description
       weight(unit: KILOGRAM)
       height(unit: METER)
+      number
       evolutions {
         id
         ...PokemonCard
