@@ -10,11 +10,6 @@ import Grid from 'components/Grid'
 import { gql, graphql } from 'react-apollo'
 import styled from 'styled-components'
 
-const StatContainer = styled.div`
-  display: flex;
-  margin-bottom: 1.5rem;
-`
-
 const Pokemon = ({ data: { loading, pokemon }}) => {
   if (loading) {
     return <Spinner />
