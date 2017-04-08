@@ -5,7 +5,6 @@ import PokemonCard from 'screens/Home/components/PokemonCard'
 import PokemonTheme from 'components/PokemonTheme'
 import React, { PropTypes } from 'react'
 import Stat from 'components/Stat'
-import Spinner from 'components/Spinner'
 import TypeLabel from 'components/TypeLabel'
 import Grid from 'components/Grid'
 import { gql, graphql } from 'react-apollo'
@@ -55,26 +54,22 @@ const Stats = styled.div`
   margin-top: 1.5rem;
 `
 
-const Pokemon = ({ data: { loading, pokemon }}) => {
-  if (loading) {
-    return <Spinner />
-  }
-
+const Pokemon = ({ data: { loading, pokemon = {}}}) => {
   const {
-    attack,
-    name,
-    number,
+    attack = 0,
+    name = '',
+    number = '',
     image,
-    types,
+    types = [],
     weight,
     height,
-    evolutions,
-    hp,
-    defense,
-    speed,
-    specialDefense,
-    specialAttack,
-    weaknesses,
+    evolutions = [],
+    hp = 0,
+    defense = 0,
+    speed = 0,
+    specialDefense = 0,
+    specialAttack = 0,
+    weaknesses = [],
     description
   } = pokemon
 
