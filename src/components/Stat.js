@@ -11,7 +11,7 @@ const STAT_MAP = {
     max: 200
   },
   hp: {
-    display: 'hp',
+    display: 'HP',
     max: 275
   },
   speed: {
