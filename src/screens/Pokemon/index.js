@@ -3,19 +3,12 @@ import PageContent from 'components/PageContent'
 import PokemonCard from 'screens/Home/components/PokemonCard'
 import PokemonTheme from 'components/PokemonTheme'
 import React, { PropTypes } from 'react'
-import StatCounter from 'components/StatCounter'
+import Stat from 'components/Stat'
 import Spinner from 'components/Spinner'
 import TypeLabel from 'components/TypeLabel'
 import Grid from 'components/Grid'
 import { gql, graphql } from 'react-apollo'
 import styled from 'styled-components'
-
-const MAX_ATTACK = 150
-const MAX_DEFENSE = 200
-const MAX_HP = 275
-const MAX_SPEED = 150
-const MAX_SPECIAL_ATTACK = 175
-const MAX_SPECIAL_DEFENSE = 150
 
 const StatContainer = styled.div`
   display: flex;
@@ -55,30 +48,12 @@ const Pokemon = ({ data: { loading, pokemon }}) => {
           { types.map(type =>
             <TypeLabel key={ type } type={ type } />
           )}
-          <StatContainer>
-            <label>Attack</label>
-            <StatCounter max={ MAX_ATTACK } value={ attack } width={ '80%' } />
-          </StatContainer>
-          <StatContainer>
-            <label>Defense</label>
-            <StatCounter max={ MAX_DEFENSE } value={ defense } width={ '80%' } />
-          </StatContainer>
-          <StatContainer>
-            <label>HP</label>
-            <StatCounter max={ MAX_HP } value={ hp } width={ '80%' } />
-          </StatContainer>
-          <StatContainer>
-            <label>Speed</label>
-            <StatCounter max={ MAX_SPEED } value={ speed } width={ '80%' } />
-          </StatContainer>
-          <StatContainer>
-            <label>Special Attack</label>
-            <StatCounter max={ MAX_SPECIAL_ATTACK } value={ specialAttack } width={ '80%' } />
-          </StatContainer>
-          <StatContainer>
-            <label>Special Defense</label>
-            <StatCounter max={ MAX_SPECIAL_DEFENSE } value={ specialDefense } width={ '80%' } />
-          </StatContainer>
+          <Stat name='attack' value={ attack } />
+          <Stat name='defense' value={ defense } />
+          <Stat name='hp' value={ hp } />
+          <Stat name='speed' value={ speed } />
+          <Stat name='specialAttack' value={ specialAttack } />
+          <Stat name='specialDefense' value={ specialDefense } />
           <dl>
             <dt>Weight</dt>
             <dd>{ weight }</dd>
