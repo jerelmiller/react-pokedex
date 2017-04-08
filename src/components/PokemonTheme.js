@@ -73,7 +73,8 @@ const defaultTheme = {
   text: '#666'
 }
 
-export const themeFromType = type => themes[type.toLowerCase()] || defaultTheme
+export const themeFromType = (type = '') =>
+  themes[type.toLowerCase()] || defaultTheme
 
 const PokemonTheme = ({ children, type }) => (
   <ThemeProvider theme={ themeFromType(type) }>
