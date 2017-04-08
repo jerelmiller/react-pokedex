@@ -30,7 +30,7 @@ Home.propTypes = {
 
 export default graphql(gql`
   query GetPokemons {
-    pokemons(first: 151) {
+    pokemons {
       id
       ...PokemonCard
     }

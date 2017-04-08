@@ -11,7 +11,7 @@ import 'normalize.css'
 import './index.css'
 
 const networkInterface = createNetworkInterface({
-  uri: 'https://graphql-pokemon.now.sh'
+  uri: '/graphql'
 })
 
 const client = new ApolloClient({ networkInterface })

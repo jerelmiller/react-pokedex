@@ -21,17 +21,16 @@ const Pokemon = ({ data: { loading, pokemon }}) => {
   }
 
   const {
-    classification, name,
+    attack,
+    name,
     image,
     types,
     weight,
     height,
     resistant,
     evolutions,
-    maxCP,
-    maxHP,
-    weaknesses,
-    attacks
+    hp,
+    weaknesses
   } = pokemon
 
   return (
@@ -46,40 +45,24 @@ const Pokemon = ({ data: { loading, pokemon }}) => {
             <TypeLabel key={ type } type={ type } />
           )}
           <StatContainer>
-            <label>Max HP</label>
-            <StatCounter max={ 3000 } value={ maxHP } width={ '80%' } />
+            <label>HP</label>
+            <StatCounter max={ 3000 } value={ hp } width={ '80%' } />
           </StatContainer>
           <StatContainer>
-            <label>Max CP</label>
-            <StatCounter max={ 3000 } value={ maxCP } width={ '80%' } />
+            <label>Attack</label>
+            <StatCounter max={ 3000 } value={ attack } width={ '80%' } />
           </StatContainer>
           <dl>
-            <dt>Weight (min)</dt>
-            <dd>{ weight.minimum }</dd>
-            <dt>Weight (max)</dt>
-            <dd>{ weight.maximum }</dd>
-            <dt>Height (min)</dt>
-            <dd>{ height.minimum }</dd>
-            <dt>Height (max)</dt>
-            <dd>{ height.maximum }</dd>
-            <dt>Classification</dt>
-            <dd>{ classification }</dd>
-            <dt>Resistant</dt>
-            <dd>
-              { resistant.map(type =>
-                <TypeLabel key={ type } type={ type } />
-              )}
-            </dd>
+            <dt>Weight</dt>
+            <dd>{ weight }</dd>
+            <dt>Height</dt>
+            <dd>{ height }</dd>
             <dt>Weaknesses</dt>
             <dd>
               { weaknesses.map(type =>
                 <TypeLabel key={ type } type={ type } />
               )}
             </dd>
-            <dt>Fast Attacks</dt>
-            <dd>{ attacks.fast.map(attack => attack.name).join(', ') }</dd>
-            <dt>Special Attacks</dt>
-            <dd>{ attacks.special.map(attack => attack.name).join(', ') }</dd>
           </dl>
 
           <h1>Evolutions</h1>
@@ -102,35 +85,19 @@ Pokemon.propTypes = {
 }
 
 const pokemonQuery = gql`
-  query GetPokemon($id: String) {
+  query GetPokemon($id: ID!) {
     pokemon(id: $id) {
-      classification
+      attack
       image
       name
       types
-      resistant
-      maxHP
-      maxCP
       weaknesses
-      weight {
-        minimum
-        maximum
-      }
-      height {
-        minimum
-        maximum
-      }
+      hp
+      weight
+      height
       evolutions {
         id
         ...PokemonCard
-      }
-      attacks {
-        fast {
-          name
-        }
-        special {
-          name
-        }
       }
     }
   }
