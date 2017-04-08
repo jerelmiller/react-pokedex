@@ -3,6 +3,8 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
+const ballSize = 2
+
 const ThemedHeader = styled.header`
   background: ${({ theme }) => theme.primary}
   color: ${({ theme }) => theme.text}
@@ -19,16 +21,16 @@ const ThemedHeader = styled.header`
 
   &:after {
     background-color: #f6f6f6;
-    width: 1.0rem;
-    height: 1.0rem;
-    bottom: -0.5rem;
+    width: ${ballSize - 0.5}rem;
+    height: ${ballSize - 0.5}rem;
+    bottom: -${(ballSize - 0.5) / 2}rem;
   }
 
   &:before {
     background-color: ${({ theme }) => theme.primary}
-    width: 1.5rem;
-    height: 1.5rem;
-    bottom: -0.75rem;
+    width: ${ballSize}rem;
+    height: ${ballSize}rem;
+    bottom: -${ballSize / 2}rem;
   }
 `
 
