@@ -76,10 +76,10 @@ const defaultTheme = {
 export const themeFromType = (type = '') =>
   themes[type.toLowerCase()] || defaultTheme
 
-const PokemonTheme = ({ children, type }) => (
+const Theme = ({ children, type }) => (
   <ThemeProvider theme={ themeFromType(type) }>
     { children }
   </ThemeProvider>
 )
 
-export default PokemonTheme
+export default Theme

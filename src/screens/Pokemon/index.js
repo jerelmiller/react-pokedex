@@ -10,7 +10,7 @@ import Name from './components/Name'
 import PageContent from 'components/PageContent'
 import PokemonCard from 'screens/shared/PokemonCard'
 import PokemonImg from './components/PokemonImg'
-import PokemonTheme from 'components/PokemonTheme'
+import Theme from 'components/Theme'
 import React, { PropTypes } from 'react'
 import Stat from 'components/Stat'
 import Stats from './components/Stats'
@@ -37,7 +37,7 @@ const Pokemon = ({ data: { loading, pokemon = {}}}) => {
   } = pokemon
 
   return (
-    <PokemonTheme type={ types[0] }>
+    <Theme type={ types[0] }>
       <div>
         <Header pokemonType={ types[0] } />
         <PageContent>
@@ -85,7 +85,7 @@ const Pokemon = ({ data: { loading, pokemon = {}}}) => {
           </Grid>
         </PageContent>
       </div>
-    </PokemonTheme>
+    </Theme>
   )
 }
 

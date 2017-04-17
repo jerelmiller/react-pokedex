@@ -1,4 +1,4 @@
-import PokemonTheme from 'components/PokemonTheme'
+import Theme from 'components/Theme'
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
@@ -47,13 +47,13 @@ const CloseButton = styled(Link)`
 `
 
 const Header = ({ children, pokemonType }) => (
-  <PokemonTheme type={ pokemonType }>
+  <Theme type={ pokemonType }>
     <ThemedHeader>
       <CloseButton to='/pokemon'>
         &times;
       </CloseButton>
     </ThemedHeader>
-  </PokemonTheme>
+  </Theme>
 )
 
 export default Header

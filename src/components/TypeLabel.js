@@ -1,5 +1,5 @@
 import React from 'react'
-import PokemonTheme from './PokemonTheme'
+import Theme from './Theme'
 import styled from 'styled-components'
 
 const Label = styled.span`
@@ -13,9 +13,9 @@ const Label = styled.span`
 `
 
 const TypeLabel = ({ type }) => (
-  <PokemonTheme type={ type }>
+  <Theme type={ type }>
     <Label>{ type }</Label>
-  </PokemonTheme>
+  </Theme>
 )
 
 export default TypeLabel

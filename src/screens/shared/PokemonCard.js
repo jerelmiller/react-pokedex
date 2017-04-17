@@ -3,7 +3,7 @@ import { gql } from 'react-apollo'
 import CardLink from 'components/CardLink'
 import CardImage from 'components/CardImage'
 import CardInfo from 'components/CardInfo'
-import PokemonTheme from 'components/PokemonTheme'
+import Theme from 'components/Theme'
 import styled from 'styled-components'
 
 const PokemonInfo = styled(CardInfo)`
@@ -29,7 +29,7 @@ const PokemonImageContainer = styled.div`
 `
 
 const PokemonCard = ({ pokemon }) => (
-  <PokemonTheme type={ pokemon.types[0] }>
+  <Theme type={ pokemon.types[0] }>
     <CardLink to={ `/pokemon/${pokemon.id}` }>
       <PokemonImageContainer>
         <CardImage src={ pokemon.image } alt={ pokemon.name } />
@@ -39,7 +39,7 @@ const PokemonCard = ({ pokemon }) => (
         <PokemonNumber>#{ pokemon.number }</PokemonNumber>
       </PokemonInfo>
     </CardLink>
-  </PokemonTheme>
+  </Theme>
 )
 
 PokemonCard.fragments = {
