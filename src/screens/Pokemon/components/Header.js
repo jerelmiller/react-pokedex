@@ -1,4 +1,4 @@
-import PokemonTheme, { themeFromType } from 'components/PokemonTheme'
+import PokemonTheme from 'components/PokemonTheme'
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
