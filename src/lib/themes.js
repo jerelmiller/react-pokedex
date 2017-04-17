@@ -66,5 +66,9 @@ export default {
   steel: {
     primary: '#607D8B',
     text: '#fff'
+  },
+  dark: {
+    primary: '#263238',
+    text: '#fff'
   }
 }
