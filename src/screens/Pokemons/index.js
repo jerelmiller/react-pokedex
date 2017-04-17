@@ -5,7 +5,7 @@ import React, { PropTypes } from 'react'
 import Spinner from 'components/Spinner'
 import { gql, graphql } from 'react-apollo'
 
-const Home = ({ data: { loading, pokemons }}) => {
+const Pokemons = ({ data: { loading, pokemons }}) => {
   if (loading) {
     return <Spinner size={ 80 } />
   }
@@ -21,7 +21,7 @@ const Home = ({ data: { loading, pokemons }}) => {
   )
 }
 
-Home.propTypes = {
+Pokemons.propTypes = {
   data: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
     pokemons: PropTypes.array
@@ -36,4 +36,4 @@ export default graphql(gql`
     }
   }
   ${PokemonCard.fragments.pokemon}
-`)(Home)
+`)(Pokemons)
