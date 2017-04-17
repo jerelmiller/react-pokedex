@@ -1,6 +1,6 @@
 import Container from 'components/Container'
 import Grid from 'components/Grid'
-import PokemonCard from './components/PokemonCard'
+import PokemonCard from 'screens/shared/PokemonCard'
 import React, { PropTypes } from 'react'
 import Spinner from 'components/Spinner'
 import { gql, graphql } from 'react-apollo'

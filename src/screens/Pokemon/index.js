@@ -1,7 +1,7 @@
 import FlexContainer from 'components/FlexContainer'
 import Header from './components/Header'
 import PageContent from 'components/PageContent'
-import PokemonCard from 'screens/Pokemons/components/PokemonCard'
+import PokemonCard from 'screens/shared/PokemonCard'
 import PokemonTheme from 'components/PokemonTheme'
 import React, { PropTypes } from 'react'
 import Stat from 'components/Stat'
