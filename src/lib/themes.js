@@ -62,5 +62,9 @@ export default {
   flying: {
     primary: '#2962FF',
     text: '#fff'
+  },
+  steel: {
+    primary: '#607D8B',
+    text: '#fff'
   }
 }
