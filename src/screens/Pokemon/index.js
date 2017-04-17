@@ -1,58 +1,21 @@
+import Data from './components/Data'
+import DataContainer from './components/DataContainer'
 import FlexContainer from 'components/FlexContainer'
+import Grid from 'components/Grid'
 import Header from './components/Header'
+import Info from './components/Info'
+import InfoContainer from './components/InfoContainer'
+import InfoLabel from './components/InfoLabel'
+import Name from './components/Name'
 import PageContent from 'components/PageContent'
 import PokemonCard from 'screens/shared/PokemonCard'
+import PokemonImg from './components/PokemonImg'
 import PokemonTheme from 'components/PokemonTheme'
 import React, { PropTypes } from 'react'
 import Stat from 'components/Stat'
+import Stats from './components/Stats'
 import TypeLabel from 'components/TypeLabel'
-import Grid from 'components/Grid'
 import { gql, graphql } from 'react-apollo'
-import styled from 'styled-components'
-
-const PokemonImg = styled.img`
-  max-width: 250px;
-  flex: 1;
-  margin-right: 2%;
-`
-
-const PokemonInfoContainer = styled.div`
-  flex: 2;
-`
-
-const PokemonDataContainer = styled.section`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 1.5rem;
-`
-
-const PokemonInfo = styled.div`
-  flex: 1;
-  text-align: center;
-`
-
-const InfoLabel = styled.label`
-  display: block;
-  text-transform: uppercase;
-  text-align: center;
-  margin-top: 0.5rem;
-  color: #666;
-`
-
-const Data = styled.span`
-  font-weight: 700;
-  font-size: 1.5rem;
-`
-
-const Name = styled.div`
-  text-align: center;
-  margin-bottom: 1.5rem;
-`
-
-const Stats = styled.div`
-  margin-top: 1.5rem;
-`
 
 const Pokemon = ({ data: { loading, pokemon = {}}}) => {
   const {
@@ -80,25 +43,25 @@ const Pokemon = ({ data: { loading, pokemon = {}}}) => {
         <PageContent>
           <FlexContainer>
             <PokemonImg src={ image } alt={ name } />
-            <PokemonInfoContainer>
+            <InfoContainer>
               <Name>
                 <h1>#{ number } { name }</h1>
                 { types.map(type =>
                   <TypeLabel key={ type } type={ type } />
                 )}
               </Name>
-              <PokemonDataContainer>
-                <PokemonInfo>
+              <DataContainer>
+                <Info>
                   <Data>{ height } m</Data>
                   <InfoLabel>Height</InfoLabel>
-                </PokemonInfo>
-                <PokemonInfo>
+                </Info>
+                <Info>
                   <Data>{ weight } kg</Data>
                   <InfoLabel>Weight</InfoLabel>
-                </PokemonInfo>
-              </PokemonDataContainer>
+                </Info>
+              </DataContainer>
               <p>{ description }</p>
-            </PokemonInfoContainer>
+            </InfoContainer>
           </FlexContainer>
 
           <Stats>
