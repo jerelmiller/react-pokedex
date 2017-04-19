@@ -6,7 +6,7 @@ import PokemonCard from 'screens/shared/PokemonCard'
 import React, { PropTypes } from 'react'
 import Spinner from 'components/Spinner'
 import environment from 'config/environment'
-// import { createFragmentContainer, graphql } from 'react-relay'
+import { QueryRenderer, graphql } from 'react-relay'
 
 const Pokemons = ({ pokemons }) =>
   <div>
@@ -25,21 +25,25 @@ const Pokemons = ({ pokemons }) =>
     </Container>
   </div>
 
-export default Pokemons
+export default () => (
+  <QueryRenderer
+    environment={ environment }
+    query={ graphql`
+      query indexQuery {
+        pokemons {
+          id
+          ...PokemonCard_pokemon
+        }
+      }
+    `}
+    render={ ({ error, props }) => {
+      if (error) {
+        return <div>Error...</div>
+      } else if (props) {
+        return <Pokemons { ...props } />
+      }
 
-// Pokemons.propTypes = {
-//   data: PropTypes.shape({
-//     loading: PropTypes.bool.isRequired,
-//     pokemons: PropTypes.array
-//   }).isRequired
-// }
-
-// export default graphql(gql`
-//   query GetPokemons {
-//     pokemons {
-//       id
-//       ...PokemonCard
-//     }
-//   }
-//   ${PokemonCard.fragments.pokemon}
-// `)(Pokemons)
+      return <Spinner size={ 80 } />
+    }}
+  />
+)
