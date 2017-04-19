@@ -9,6 +9,7 @@
     "react": "^15.4.2",
     "react-apollo": "^1.0.0",
     "react-dom": "^15.4.2",
+    "react-relay": "dev",
     "react-router-dom": "^4.0.0",
     "styled-components": "^1.4.4"
   },
