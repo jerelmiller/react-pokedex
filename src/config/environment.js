@@ -3,6 +3,10 @@ import { Environment, Network, RecordSource, Store } from 'relay-runtime'
 const fetchQuery = (operation, variables, cacheConfig, uploadables) => (
   fetch('/graphql', {
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
     body: JSON.stringify({
       query: operation.text,
       variables,
