@@ -1,7 +1,8 @@
-// import Pokemons from 'screens/Pokemons'
+import environment from 'config/environment'
+import Pokemons from 'screens/Pokemons'
 // import Pokemon from 'screens/Pokemon'
 import React  from 'react'
-import environment from 'config/environment'
+import Spinner from 'components/Spinner'
 import { Redirect, Route } from 'react-router-dom'
 import { QueryRenderer, graphql } from 'react-relay'
 
@@ -11,12 +12,19 @@ const App = () =>
     query={ graphql`
       query AppQuery {
         pokemons {
-          ...index_pokemons
+          id
+          ...PokemonCard_pokemon
         }
       }
     `}
     render={ ({ error, props }) => {
-      return <div>Render me</div>
+      if (error) {
+        return <div>Error...</div>
+      } else if (props) {
+        return <Pokemons { ...props } />
+      }
+
+      return <Spinner size={ 80 } />
     }}
   />
   // <div>

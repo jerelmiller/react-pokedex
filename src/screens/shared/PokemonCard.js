@@ -28,7 +28,7 @@ const PokemonImageContainer = styled.div`
   align-self: center;
 `
 
-const PokemonCard = ({ pokemon }) => (
+const PokemonCard = ({ pokemon }) =>
   <Theme type={ pokemon.types[0] }>
     <CardLink to={ `/pokemon/${pokemon.id}` }>
       <PokemonImageContainer>
@@ -40,32 +40,10 @@ const PokemonCard = ({ pokemon }) => (
       </PokemonInfo>
     </CardLink>
   </Theme>
-)
 
-// PokemonCard.fragments = {
-//   pokemon: gql`
-//     fragment PokemonCard on Pokemon {
-//       id
-//       number
-//       name
-//       image
-//       types
-//     }
-//   `
-// }
-
-// PokemonCard.propTypes = {
-//   pokemon: PropTypes.shape({
-//     image: PropTypes.string.isRequired,
-//     name: PropTypes.string.isRequired,
-//     number: PropTypes.string.isRequired,
-//     types: PropTypes.arrayOf(PropTypes.string).isRequired
-//   })
-// }
-
-
-export default createFragmentContainer(PokemonCard, {
-  pokemon: graphql`
+export default createFragmentContainer(
+  PokemonCard,
+  graphql`
     fragment PokemonCard_pokemon on Pokemon {
       id
       number
@@ -74,4 +52,4 @@ export default createFragmentContainer(PokemonCard, {
       types
     }
   `
-})
+)
