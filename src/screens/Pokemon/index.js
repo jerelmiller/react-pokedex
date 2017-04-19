@@ -15,7 +15,6 @@ import React, { PropTypes } from 'react'
 import Stat from 'components/Stat'
 import Stats from './components/Stats'
 import TypeLabel from 'components/TypeLabel'
-import { gql, graphql } from 'react-apollo'
 
 const Pokemon = ({ data: { loading, pokemon = {}}}) => {
   const {
@@ -96,33 +95,34 @@ Pokemon.propTypes = {
   }).isRequired
 }
 
-const pokemonQuery = gql`
-  query GetPokemon($id: ID!) {
-    pokemon(id: $id) {
-      attack
-      defense
-      hp
-      speed
-      specialDefense
-      specialAttack
-      image
-      name
-      types
-      weaknesses
-      description
-      weight(unit: KILOGRAM)
-      height(unit: METER)
-      number
-      evolutions {
-        id
-        ...PokemonCard
-      }
-    }
-  }
+// const pokemonQuery = gql`
+//   query GetPokemon($id: ID!) {
+//     pokemon(id: $id) {
+//       attack
+//       defense
+//       hp
+//       speed
+//       specialDefense
+//       specialAttack
+//       image
+//       name
+//       types
+//       weaknesses
+//       description
+//       weight(unit: KILOGRAM)
+//       height(unit: METER)
+//       number
+//       evolutions {
+//         id
+//         ...PokemonCard
+//       }
+//     }
+//   }
 
-  ${PokemonCard.fragments.pokemon}
-`
+//   ${PokemonCard.fragments.pokemon}
+// `
 
-export default graphql(pokemonQuery, {
-  options: ({ match }) => ({ variables: { id: match.params.id }})
-})(Pokemon)
+export default Pokemon
+// export default graphql(pokemonQuery, {
+//   options: ({ match }) => ({ variables: { id: match.params.id }})
+// })(Pokemon)

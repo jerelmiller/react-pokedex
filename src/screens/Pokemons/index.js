@@ -5,12 +5,14 @@ import Pokeball from 'components/Pokeball'
 import PokemonCard from 'screens/shared/PokemonCard'
 import React, { PropTypes } from 'react'
 import Spinner from 'components/Spinner'
-import { gql, graphql } from 'react-apollo'
+import environment from 'config/environment'
+import { createFragmentContainer, graphql } from 'react-relay'
 
-const Pokemons = ({ data: { loading, pokemons }}) => {
-  if (loading) {
-    return <Spinner size={ 80 } />
-  }
+// const Pokemons = ({ data: { loading, pokemons }}) => {
+const Pokemons = ({ pokemons }) => {
+  // if (loading) {
+  //   return <Spinner size={ 80 } />
+  // }
 
   return (
     <div>
@@ -31,19 +33,29 @@ const Pokemons = ({ data: { loading, pokemons }}) => {
   )
 }
 
-Pokemons.propTypes = {
-  data: PropTypes.shape({
-    loading: PropTypes.bool.isRequired,
-    pokemons: PropTypes.array
-  }).isRequired
-}
-
-export default graphql(gql`
-  query GetPokemons {
-    pokemons {
+export default createFragmentContainer(
+  Pokemons,
+  graphql`
+    fragment index_pokemons on Pokemon {
       id
-      ...PokemonCard
+      ...PokemonCard_pokemon
     }
-  }
-  ${PokemonCard.fragments.pokemon}
-`)(Pokemons)
+  `
+)
+
+// Pokemons.propTypes = {
+//   data: PropTypes.shape({
+//     loading: PropTypes.bool.isRequired,
+//     pokemons: PropTypes.array
+//   }).isRequired
+// }
+
+// export default graphql(gql`
+//   query GetPokemons {
+//     pokemons {
+//       id
+//       ...PokemonCard
+//     }
+//   }
+//   ${PokemonCard.fragments.pokemon}
+// `)(Pokemons)
