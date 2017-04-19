@@ -1,6 +1,6 @@
 import Container from 'components/Container'
 import Grid from 'components/Grid'
-import Header from './components/Header'
+import Header from './Pokemons/components/Header'
 import Pokeball from 'components/Pokeball'
 import PokemonCard from 'screens/shared/PokemonCard'
 import React, { PropTypes } from 'react'
