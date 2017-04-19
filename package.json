@@ -14,12 +14,16 @@
     "styled-components": "^1.4.4"
   },
   "devDependencies": {
-    "react-scripts": "0.9.5"
+    "babel-plugin-relay": "dev",
+    "react-scripts": "0.9.5",
+    "relay-compiler": "dev"
   },
   "scripts": {
     "start": "NODE_PATH=./src react-scripts start",
     "build": "NODE_PATH=./src react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "relay": "relay-compiler --src ./src --schema path/schema.graphql",
+    "relay:watch": "relay-compiler --src ./src --schema path/schema.graphql --watch"
   }
 }
