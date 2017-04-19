@@ -60,7 +60,8 @@
     "build": "NODE_PATH=./src node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "relay": "relay-compiler --src ./src --schema ./schema.graphql",
-    "relay:watch": "relay-compiler --src ./src --schema ./schema.graphql --watch"
+    "relay:watch": "relay-compiler --src ./src --schema ./schema.graphql --watch",
+    "update-schema": "node ./scripts/updateSchema.js"
   },
   "jest": {
     "collectCoverageFrom": [
