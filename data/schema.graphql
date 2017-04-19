@@ -32,7 +32,13 @@ type MoveMethod {
   name: String!
 }
 
-type Pokemon {
+# An object with an ID.
+interface Node {
+  # ID of the object.
+  id: ID!
+}
+
+type Pokemon implements Node {
   attack: Int!
   defense: Int!
   description: String!
@@ -76,6 +82,18 @@ type PokemonMove {
 }
 
 type Query {
+  # Fetches an object given its ID.
+  node(
+    # ID of the object.
+    id: ID!
+  ): Node
+
+  # Fetches a list of objects given a list of IDs.
+  nodes(
+    # IDs of the objects.
+    ids: [ID!]!
+  ): [Node]!
+
   # Get a pokemon by id
   pokemon(id: ID!): Pokemon
 
