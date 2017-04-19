@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react'
+import React from 'react'
 import CardLink from 'components/CardLink'
 import CardImage from 'components/CardImage'
 import CardInfo from 'components/CardInfo'
