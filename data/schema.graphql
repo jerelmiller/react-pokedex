@@ -1,0 +1,93 @@
+# Units of length
+enum LengthUnit {
+  # length in meters
+  METER
+
+  # length in feet
+  FOOT
+}
+
+type Move {
+  # Accuracy of move
+  accuracy: Int
+
+  # Effect move has on opponent
+  effect: String!
+
+  # Name of the move
+  name: String!
+
+  # Power of move
+  power: Int
+
+  # Power points used by move
+  pp: Int!
+}
+
+type MoveMethod {
+  # Description of move method
+  description: String!
+
+  # Name of move method
+  name: String!
+}
+
+type Pokemon {
+  attack: Int!
+  defense: Int!
+  description: String!
+
+  # Evolutions of the pokemon
+  evolutions: [Pokemon]
+
+  # Height of pokemon. Default unit is METER
+  height(unit: LengthUnit): Float!
+  hp: Int!
+  id: ID!
+
+  # Image for pokemon
+  image: String!
+
+  # Moves performed by pokemon
+  moves: [PokemonMove]
+  name: String!
+  number: String!
+  specialAttack: Int!
+  specialDefense: Int!
+  speed: Int!
+
+  # Pokemon strengths
+  strengths: [String!]!
+
+  # Pokemon types
+  types: [String!]!
+
+  # Pokemon weaknesses
+  weaknesses: [String!]!
+
+  # Weight of pokemon. Default unit is KILOGRAM
+  weight(unit: WeightUnit): Float!
+}
+
+type PokemonMove {
+  level: Int!
+  move: Move!
+  moveMethod: MoveMethod!
+}
+
+type Query {
+  # Get a pokemon by id
+  pokemon(id: ID!): Pokemon
+
+  # Get all pokemon
+  pokemons: [Pokemon]
+}
+
+# Units of weight
+enum WeightUnit {
+  # weight in kilograms
+  KILOGRAM
+
+  # weight in pounds
+  POUND
+}

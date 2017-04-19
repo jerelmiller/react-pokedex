@@ -59,8 +59,7 @@
     "start": "NODE_PATH=./src node scripts/start.js",
     "build": "NODE_PATH=./src node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
-    "relay": "relay-compiler --src ./src --schema ./schema.graphql",
-    "relay:watch": "relay-compiler --src ./src --schema ./schema.graphql --watch",
+    "relay": "relay-compiler --src ./src --schema data/schema.graphql",
     "update-schema": "node ./scripts/updateSchema.js"
   },
   "jest": {
