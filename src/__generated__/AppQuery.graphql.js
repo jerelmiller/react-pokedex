@@ -3,8 +3,8 @@
  *   relay-compiler
  *
  * @providesModule AppQuery.graphql
- * @generated SignedSource<<0cd0e9fce96643c8c0db30e8934d96d3>>
- * @relayHash b02ca6ee9bac1970f1271c3e4f0dc856
+ * @generated SignedSource<<37e474e3609dd5871dccd4d88a5279d6>>
+ * @relayHash 86bd4707af0a1c183f744e2672f6fe47
  * @flow
  * @nogrep
  */
@@ -21,14 +21,9 @@ import type {ConcreteBatch} from 'relay-runtime';
 /*
 query AppQuery {
   pokemons {
-    ...index_pokemons
     id
+    ...PokemonCard_pokemon
   }
-}
-
-fragment index_pokemons on Pokemon {
-  id
-  ...PokemonCard_pokemon
 }
 
 fragment PokemonCard_pokemon on Pokemon {
@@ -56,8 +51,15 @@ const batch /*: ConcreteBatch*/ = {
         "plural": true,
         "selections": [
           {
+            "kind": "ScalarField",
+            "alias": null,
+            "args": null,
+            "name": "id",
+            "storageKey": null
+          },
+          {
             "kind": "FragmentSpread",
-            "name": "index_pokemons",
+            "name": "PokemonCard_pokemon",
             "args": null
           }
         ],
@@ -130,7 +132,7 @@ const batch /*: ConcreteBatch*/ = {
       }
     ]
   },
-  "text": "query AppQuery {\n  pokemons {\n    ...index_pokemons\n    id\n  }\n}\n\nfragment index_pokemons on Pokemon {\n  id\n  ...PokemonCard_pokemon\n}\n\nfragment PokemonCard_pokemon on Pokemon {\n  id\n  number\n  name\n  image\n  types\n}\n"
+  "text": "query AppQuery {\n  pokemons {\n    id\n    ...PokemonCard_pokemon\n  }\n}\n\nfragment PokemonCard_pokemon on Pokemon {\n  id\n  number\n  name\n  image\n  types\n}\n"
 };
 
 module.exports = batch;

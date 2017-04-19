@@ -3,7 +3,7 @@
  *   relay-compiler
  *
  * @providesModule index_pokemons.graphql
- * @generated SignedSource<<fdd15f208931af99c7e964a711c27420>>
+ * @generated SignedSource<<6694eab3dc62057be810cdb5ad447498>>
  * @flow
  * @nogrep
  */
@@ -31,11 +31,6 @@ const fragment /*: ConcreteFragment*/ = {
       "args": null,
       "name": "id",
       "storageKey": null
-    },
-    {
-      "kind": "FragmentSpread",
-      "name": "PokemonCard_pokemon",
-      "args": null
     }
   ],
   "type": "Pokemon"
