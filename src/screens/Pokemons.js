@@ -29,7 +29,7 @@ export default () => (
   <QueryRenderer
     environment={ environment }
     query={ graphql`
-      query indexQuery {
+      query PokemonsQuery {
         pokemons {
           id
           ...PokemonCard_pokemon
