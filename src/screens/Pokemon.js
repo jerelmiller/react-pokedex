@@ -1,22 +1,24 @@
-import Data from './components/Data'
-import DataContainer from './components/DataContainer'
+import Data from './Pokemon/components/Data'
+import DataContainer from './Pokemon/components/DataContainer'
+import environment from 'config/environment'
 import FlexContainer from 'components/FlexContainer'
 import Grid from 'components/Grid'
-import Header from './components/Header'
-import Info from './components/Info'
-import InfoContainer from './components/InfoContainer'
-import InfoLabel from './components/InfoLabel'
-import Name from './components/Name'
+import Header from './Pokemon/components/Header'
+import Info from './Pokemon/components/Info'
+import InfoContainer from './Pokemon/components/InfoContainer'
+import InfoLabel from './Pokemon/components/InfoLabel'
+import Name from './Pokemon/components/Name'
 import PageContent from 'components/PageContent'
 import PokemonCard from 'screens/shared/PokemonCard'
-import PokemonImg from './components/PokemonImg'
+import PokemonImg from './Pokemon/components/PokemonImg'
 import Theme from 'components/Theme'
 import React, { PropTypes } from 'react'
 import Stat from 'components/Stat'
-import Stats from './components/Stats'
+import Stats from './Pokemon/components/Stats'
 import TypeLabel from 'components/TypeLabel'
+import { QueryRenderer, graphql } from 'react-relay'
 
-const Pokemon = ({ data: { loading, pokemon = {}}}) => {
+const Pokemon = ({ pokemon = {}}) => {
   const {
     attack = 0,
     name = '',
@@ -88,41 +90,42 @@ const Pokemon = ({ data: { loading, pokemon = {}}}) => {
   )
 }
 
-Pokemon.propTypes = {
-  data: PropTypes.shape({
-    loading: PropTypes.bool.isRequired,
-    pokemon: PropTypes.object
-  }).isRequired
-}
+export default ({ match: { params }}) => (
+  <QueryRenderer
+    environment={ environment }
+    query={ graphql`
+      query PokemonQuery($id: ID!) {
+        pokemon(id: $id) {
+          attack
+          defense
+          hp
+          speed
+          specialDefense
+          specialAttack
+          image
+          name
+          types
+          weaknesses
+          description
+          weight(unit: KILOGRAM)
+          height(unit: METER)
+          number
+          evolutions {
+            id
+            ...PokemonCard_pokemon
+          }
+        }
+      }
+    `}
+    variables={{
+      id: params.id
+    }}
+    render={ ({ error, props }) => {
+      if (error) {
+        return <div>Error...</div>
+      }
 
-// const pokemonQuery = gql`
-//   query GetPokemon($id: ID!) {
-//     pokemon(id: $id) {
-//       attack
-//       defense
-//       hp
-//       speed
-//       specialDefense
-//       specialAttack
-//       image
-//       name
-//       types
-//       weaknesses
-//       description
-//       weight(unit: KILOGRAM)
-//       height(unit: METER)
-//       number
-//       evolutions {
-//         id
-//         ...PokemonCard
-//       }
-//     }
-//   }
-
-//   ${PokemonCard.fragments.pokemon}
-// `
-
-export default Pokemon
-// export default graphql(pokemonQuery, {
-//   options: ({ match }) => ({ variables: { id: match.params.id }})
-// })(Pokemon)
+      return <Pokemon { ...props } />
+    }}
+  />
+)
