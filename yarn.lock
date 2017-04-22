@@ -2080,7 +2080,7 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
-fbjs@^0.8.1, fbjs@^0.8.4, fbjs@^0.8.5, fbjs@^0.8.7, fbjs@^0.8.8:
+fbjs@^0.8.1, fbjs@^0.8.4, fbjs@^0.8.5, fbjs@^0.8.7, fbjs@^0.8.8, fbjs@^0.8.9:
   version "0.8.12"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.12.tgz#10b5d92f76d45575fd63a217d4ea02bea2f8ed04"
   dependencies:
@@ -4182,6 +4182,12 @@ promise@7.1.1, promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
+prop-types@^15.5.8:
+  version "15.5.8"
+  resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.5.8.tgz#6b7b2e141083be38c8595aa51fc55775c7199394"
+  dependencies:
+    fbjs "^0.8.9"
+
 proxy-addr@~1.1.3:
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-1.1.4.tgz#27e545f6960a44a627d9b44467e35c1b6b4ce2f3"
@@ -4287,13 +4293,14 @@ react-dom@^15.4.2:
     object-assign "^4.1.0"
 
 react-relay@dev:
-  version "1.0.0-rc.1"
-  resolved "https://registry.yarnpkg.com/react-relay/-/react-relay-1.0.0-rc.1.tgz#68bf715591de8e27aa9c0d45757373ca175dfb67"
+  version "1.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/react-relay/-/react-relay-1.0.0-rc.2.tgz#652796949cb58f14b39542b9977882ecccd53aa2"
   dependencies:
     babel-runtime "^6.23.0"
     fbjs "^0.8.1"
+    prop-types "^15.5.8"
     react-static-container "^1.0.1"
-    relay-runtime "1.0.0-rc.1"
+    relay-runtime "1.0.0-rc.2"
 
 react-router-dom@^4.0.0:
   version "4.0.0"
@@ -4482,6 +4489,13 @@ relay-compiler@dev:
 relay-runtime@1.0.0-rc.1:
   version "1.0.0-rc.1"
   resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-1.0.0-rc.1.tgz#fc6deb348ec816ca333e6ddf8b2dfb6e2a3ae472"
+  dependencies:
+    babel-runtime "^6.23.0"
+    fbjs "^0.8.1"
+
+relay-runtime@1.0.0-rc.2:
+  version "1.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/relay-runtime/-/relay-runtime-1.0.0-rc.2.tgz#3a90c5912aca3c40cd976e689fda5001f8241827"
   dependencies:
     babel-runtime "^6.23.0"
     fbjs "^0.8.1"
