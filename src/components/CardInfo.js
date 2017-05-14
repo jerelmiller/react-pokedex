@@ -1,6 +1,6 @@
-import glamorous from 'glamorous'
+import { styled } from 'styletron-react'
 
-const CardInfo = glamorous.div({
+const CardInfo = styled('div', {
   marginTop: 'auto',
   padding: '1rem',
   borderBottomLeftRadius: '3px',

@@ -1,9 +1,10 @@
-import glamorous from 'glamorous'
+import { styled } from 'styletron-react'
 
-export default glamorous.div(
-  { display: 'flex' },
-  ({ align = 'flex-start', justify = 'flex-start' }) => ({
-    alignItems: align,
-    justifyContent: justify
-  })
-)
+export default styled('div', ({
+  align = 'flex-start',
+  justify = 'flex-start'
+}) => ({
+  display: 'flex',
+  alignItems: align,
+  justifyContent: justify
+}))

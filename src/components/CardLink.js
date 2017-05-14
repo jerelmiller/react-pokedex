@@ -1,7 +1,7 @@
-import glamorous from 'glamorous'
+import { styled } from 'styletron-react'
 import { Link } from 'react-router-dom'
 
-const CardLink = glamorous(Link)({
+const CardLink = styled(Link, {
   display: 'flex',
   flexDirection: 'column',
   flex: '0 24%',

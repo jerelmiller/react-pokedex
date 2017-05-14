@@ -1,7 +1,7 @@
 import Container from './Container'
-import glamorous from 'glamorous'
+import { styled } from 'styletron-react'
 
-const PageContent = glamorous(Container)({
+const PageContent = styled(Container, {
   paddingTop: '1.5rem',
   paddingBottom: '1.5rem'
 })

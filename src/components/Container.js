@@ -1,6 +1,6 @@
-import glamorous from 'glamorous'
+import { styled } from 'styletron-react'
 
-const Container = glamorous.div({
+const Container = styled('div', {
   width: '80%',
   margin: '0 auto'
 })

@@ -1,6 +1,6 @@
-import glamorous from 'glamorous'
+import { styled } from 'styletron-react'
 
-const Grid = glamorous.div({
+const Grid = styled('div', {
   display: 'flex',
   flexWrap: 'wrap',
   marginLeft: '-1%',

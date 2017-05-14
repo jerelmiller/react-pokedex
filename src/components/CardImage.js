@@ -1,6 +1,6 @@
-import glamorous from 'glamorous'
+import { styled } from 'styletron-react'
 
-const CardImage = glamorous.img({
+const CardImage = styled('img', {
   width: '100%'
 })
 
