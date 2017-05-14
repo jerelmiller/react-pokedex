@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import glamorous from 'glamorous'
 
-const Container = styled.div`
-  width: 80%;
-  margin: 0 auto;
-`
+const Container = glamorous.div({
+  width: '80%',
+  margin: '0 auto'
+})
 
 export default Container
