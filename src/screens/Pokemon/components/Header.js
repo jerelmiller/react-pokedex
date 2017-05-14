@@ -10,7 +10,7 @@ const ThemedHeader = glamorous.header(
     position: 'relative',
     height: '4.5rem',
     '&::after, &::before': {
-      content: '',
+      content: '""',
       borderRadius: '50%',
       position: 'absolute',
       left: '50%',
