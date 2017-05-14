@@ -4,13 +4,14 @@ import CardLink from 'components/CardLink'
 import CardImage from 'components/CardImage'
 import CardInfo from 'components/CardInfo'
 import Theme from 'components/Theme'
-import styled from 'styled-components'
 import glamorous from 'glamorous'
 
-const PokemonInfo = styled(CardInfo)`
-  background: ${({ theme }) => theme.primary}
-  color: ${({ theme } ) => theme.text || '#fff'}
-`
+const PokemonInfo = glamorous(CardInfo)(
+  (_, { primary, text = '#fff' }) => ({
+    background: primary,
+    color: text
+  })
+)
 
 const PokemonName = glamorous.h3({
   textAlign: 'center',
