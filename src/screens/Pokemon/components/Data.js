@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import glamorous from 'glamorous'
 
-export default styled.span`
-  font-weight: 700;
-  font-size: 1.5rem;
-`
+export default glamorous.span({
+  fontWeight: '700',
+  fontSize: '1.5rem'
+})
