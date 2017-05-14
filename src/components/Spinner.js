@@ -1,32 +1,40 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
+import { css } from 'glamor'
+import glamorous from 'glamorous'
 
-const bounceAnimation = keyframes`
-  0%, 100% { transform: scale(0) }
-  50% { transform: scale(1) }
-`
+const bounceAnimation = css.keyframes({
+  '0%, 100%': { transform: 'scale(0)' },
+  '50%': { transform: 'scale(1)' }
+})
 
-const SpinnerContainer = styled.div`
-  width: ${({ size }) => size}px
-  height: ${({ size }) => size}px
 
-  position: relative;
-  margin: 150px auto;
-`
+const SpinnerContainer = glamorous.div(
+  {
+    position: 'relative',
+    margin: '150px auto',
+  },
+  ({ size }) => ({
+    width: size,
+    height: size
+  })
+)
 
-const Bounce = styled.div`
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: rgb(139, 90, 139);
-  opacity: 0.6;
-  position: absolute;
-  top: 0;
-  left: 0;
-  animation: ${bounceAnimation} 2s infinite ease-in-out;
-  animation-delay: ${({ delay = 0 }) => delay}s
-`
-
+const Bounce = glamorous.div(
+  {
+    width: '100%',
+    height: '100%',
+    borderRadius: '50%',
+    backgroundColor: 'rgb(139, 90, 139)',
+    opacity: 0.6,
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    animation: `${bounceAnimation} 2s infinite ease-in-out`
+  },
+  ({ delay = 0 }) => ({
+    animationDelay: `${delay}s`
+  })
+)
 
 const Spinner = ({ size = 40 }) => (
   <SpinnerContainer size={ size }>
