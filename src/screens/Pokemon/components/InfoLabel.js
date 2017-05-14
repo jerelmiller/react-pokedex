@@ -1,9 +1,9 @@
-import styled from 'styled-components'
+import glamorous from 'glamorous'
 
-export default styled.label`
-  display: block;
-  text-transform: uppercase;
-  text-align: center;
-  margin-top: 0.5rem;
-  color: #666;
-`
+export default glamorous.label({
+  display: 'block',
+  textTransform: 'uppercase',
+  textAlign: 'center',
+  marginTop: '0.5rem',
+  color: '#666'
+})
