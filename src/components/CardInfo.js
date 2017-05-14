@@ -1,10 +1,10 @@
-import styled from 'styled-components'
+import glamorous from 'glamorous'
 
-const CardInfo = styled.div`
-  margin-top: auto;
-  padding: 1rem;
-  border-bottom-left-radius: 3px;
-  border-bottom-right-radius: 3px;
-`
+const CardInfo = glamorous.div({
+  marginTop: 'auto',
+  padding: '1rem',
+  borderBottomLeftRadius: '3px',
+  borderBottomRightRadius: '3px'
+})
 
 export default CardInfo
