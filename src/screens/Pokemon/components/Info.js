@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import glamorous from 'glamorous'
 
-export default styled.div`
-  flex: 1;
-  text-align: center;
-`
+export default glamorous.div({
+  flex: '1',
+  textAlign: 'center'
+})
