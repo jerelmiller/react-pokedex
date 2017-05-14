@@ -1,16 +1,20 @@
 import React from 'react'
 import Theme from './Theme'
-import styled from 'styled-components'
+import glamorous from 'glamorous'
 
-const Label = styled.span`
-  padding: 0.3rem 0.8rem;
-  background: ${({ theme }) => theme.primary}
-  color: ${({ theme }) => theme.text}
-  border-radius: 2px;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  margin-right: 5px;
-`
+const Label = glamorous.span(
+  {
+    padding: '0.3rem 0.8rem',
+    borderRadius: '2px',
+    fontSize: '0.8rem',
+    textTransform: 'uppercase',
+    marginRight: '5px',
+  },
+  (_, { primary, text }) => ({
+    background: primary,
+    color: text
+  })
+)
 
 const TypeLabel = ({ type }) => (
   <Theme type={ type }>
