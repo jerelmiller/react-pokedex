@@ -1,9 +1,9 @@
 import Container from './Container'
-import styled from 'styled-components'
+import glamorous from 'glamorous'
 
-const PageContent = styled(Container)`
-  padding-top: 1.5rem;
-  padding-bottom: 1.5rem;
-`
+const PageContent = glamorous(Container)({
+  paddingTop: '1.5rem',
+  paddingBottom: '1.5rem'
+})
 
 export default PageContent
