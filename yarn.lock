@@ -4980,6 +4980,13 @@ styletron-utils@^2.5.4:
   dependencies:
     inline-style-prefixer "^2.0.1"
 
+styletron@^2.5.7:
+  version "2.5.7"
+  resolved "https://registry.yarnpkg.com/styletron/-/styletron-2.5.7.tgz#4da215eb79d3d71b17498918af95667942ee39df"
+  dependencies:
+    styletron-client "^2.5.7"
+    styletron-server "^2.5.7"
+
 supports-color@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-2.0.0.tgz#535d045ce6b6363fa40117084629995e9df324c7"
