@@ -1,5 +1,5 @@
-import styled from 'styled-components'
+import glamorous from 'glamorous'
 
-export default styled.div`
-  margin-top: 1.5rem;
-`
+export default glamorous.div({
+  marginTop: '1.5rem'
+})
