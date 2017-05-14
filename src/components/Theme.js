@@ -1,6 +1,6 @@
 import React from 'react'
 import themes from 'lib/themes'
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'glamorous'
 
 const defaultTheme = {
   primary: '#fff',
