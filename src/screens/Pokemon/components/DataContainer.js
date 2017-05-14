@@ -1,8 +1,8 @@
-import styled from 'styled-components'
+import glamorous from 'glamorous'
 
-export default styled.section`
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 1.5rem;
-`
+export default glamorous.section({
+  display: 'flex',
+  justifyContent: 'space-between',
+  alignItems: 'baseline',
+  marginBottom: '1.5rem'
+})
