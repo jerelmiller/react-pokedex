@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import glamorous from 'glamorous'
 
 const STAT_MAP = {
   attack: {
@@ -28,21 +28,23 @@ const STAT_MAP = {
   }
 }
 
-const BarContainer = styled.div`
-  background: #eee;
-  width: 85%;
-  margin-left: auto;
-`
+const BarContainer = glamorous.div({
+  background: '#eee',
+  width: '85%',
+  marginLeft: 'auto'
+})
 
-const Bar = styled.div`
-  background: ${({ theme }) => theme.primary}
-  height: 20px;
-`
+const Bar = glamorous.div(
+  { height: '20px' },
+  (_, { primary }) => ({
+    background: primary
+  })
+)
 
-const StatContainer = styled.div`
-  display: flex;
-  margin-bottom: 1.5rem;
-`
+const StatContainer = glamorous.div({
+  display: 'flex',
+  marginBottom: '1.5rem',
+})
 
 const Stat = ({ name, value }) => (
   <StatContainer>
