@@ -1,7 +1,7 @@
-import styled from 'styled-components'
+import glamorous from 'glamorous'
 
-const CardImage = styled.img`
-  width: 100%;
-`
+const CardImage = glamorous.img({
+  width: '100%'
+})
 
 export default CardImage
