@@ -1,5 +1,5 @@
-import styled from 'styled-components'
+import glamorous from 'glamorous'
 
-export default styled.div`
+export default glamorous.div({
   flex: 2
-`
+})
