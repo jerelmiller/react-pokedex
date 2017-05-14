@@ -1,10 +1,10 @@
-import styled from 'styled-components'
+import glamorous from 'glamorous'
 
-const Grid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: -1%;
-  margin-right: -1%;
-`
+const Grid = glamorous.div({
+  display: 'flex',
+  flexWrap: 'wrap',
+  marginLeft: '-1%',
+  marginRight: '-1%'
+})
 
 export default Grid
