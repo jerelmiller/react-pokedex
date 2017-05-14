@@ -1,7 +1,9 @@
-import styled from 'styled-components'
+import glamorous from 'glamorous'
 
-export default styled.div`
-  display: flex;
-  align-items: ${({ align }) => align || 'flex-start'}
-  justify-content: ${({ justify }) => justify || 'flex-start'}
-`
+export default glamorous.div(
+  { display: 'flex' },
+  ({ align = 'flex-start', justify = 'flex-start' }) => ({
+    alignItems: align,
+    justifyContent: justify
+  })
+)
