@@ -1,6 +1,6 @@
-import styled from 'styled-components'
+import glamorous from 'glamorous'
 
-export default styled.div`
-  text-align: center;
-  margin-bottom: 1.5rem;
-`
+export default glamorous.div({
+  textAlign: 'center',
+  marginBottom: '1.5rem'
+})
