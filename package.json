@@ -2,7 +2,7 @@
   "name": "react-pokedex",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001",
+  "proxy": "http://localhost:4000",
   "dependencies": {
     "glamor": "^2.20.25",
     "glamorous": "^3.14.0",
