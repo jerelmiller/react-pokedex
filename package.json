@@ -4,7 +4,7 @@
   "private": true,
   "proxy": "http://localhost:4000",
   "dependencies": {
-    "glamor": "^2.20.25",
+    "glamor": "2.20.40",
     "glamorous": "4.9.7",
     "graphql-anywhere": "^3.0.1",
     "normalize.css": "^6.0.0",
