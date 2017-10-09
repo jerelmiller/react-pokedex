@@ -14,7 +14,7 @@
     "react-router-dom": "^4.0.0"
   },
   "devDependencies": {
-    "react-scripts": "0.9.5"
+    "react-scripts": "1.0.0"
   },
   "scripts": {
     "start": "NODE_PATH=./src react-scripts start",
