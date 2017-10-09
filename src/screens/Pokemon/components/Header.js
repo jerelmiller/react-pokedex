@@ -28,11 +28,11 @@ const ThemedHeader = glamorous.header(
       bottom: `-${ballSize / 2}rem`,
     },
   },
-  (_, { primary, text }) => ({
-    color: text,
-    background: primary,
+  ({ theme }) => ({
+    color: theme.text,
+    background: theme.primary,
     '&::before': {
-      backgroundColor: primary
+      backgroundColor: theme.primary
     }
   })
 )
@@ -48,8 +48,8 @@ const CloseButton = glamorous(Link)(
     fontSize: '3rem',
     opacity: '0.5'
   },
-  (_, { text }) => ({
-    color: text
+  ({ theme }) => ({
+    color: theme.text
   })
 )
 
