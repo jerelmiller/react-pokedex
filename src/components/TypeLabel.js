@@ -10,7 +10,7 @@ const Label = glamorous.span(
     textTransform: 'uppercase',
     marginRight: '5px',
   },
-  (_, { primary, text }) => ({
+  ({ theme: { primary, text }}) => ({
     background: primary,
     color: text
   })
