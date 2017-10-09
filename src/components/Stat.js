@@ -36,8 +36,8 @@ const BarContainer = glamorous.div({
 
 const Bar = glamorous.div(
   { height: '20px' },
-  (_, { primary }) => ({
-    background: primary
+  ({ theme }) => ({
+    background: theme.primary
   })
 )
 
