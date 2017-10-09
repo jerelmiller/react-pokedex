@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { gql } from 'react-apollo'
 import CardLink from 'components/CardLink'
 import CardImage from 'components/CardImage'
