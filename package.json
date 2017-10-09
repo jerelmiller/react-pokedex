@@ -8,6 +8,7 @@
     "glamorous": "^3.14.0",
     "graphql-anywhere": "^3.0.1",
     "normalize.css": "^6.0.0",
+    "prop-types": "^15.6.0",
     "react": "^15.6.2",
     "react-apollo": "^1.0.0",
     "react-dom": "^15.6.2",
