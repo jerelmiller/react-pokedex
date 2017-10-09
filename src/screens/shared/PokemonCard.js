@@ -7,13 +7,6 @@ import CardInfo from 'components/CardInfo'
 import Theme from 'components/Theme'
 import glamorous from 'glamorous'
 
-const PokemonInfo = glamorous(CardInfo)(
-  (_, { primary, text = '#fff' }) => ({
-    background: primary,
-    color: text
-  })
-)
-
 const PokemonName = glamorous.h3({
   textAlign: 'center',
   marginTop: 0,
@@ -37,10 +30,10 @@ const PokemonCard = ({ pokemon }) => (
       <PokemonImageContainer>
         <CardImage src={ pokemon.image } alt={ pokemon.name } />
       </PokemonImageContainer>
-      <PokemonInfo>
+      <CardInfo>
         <PokemonName>{ pokemon.name }</PokemonName>
         <PokemonNumber>#{ pokemon.number }</PokemonNumber>
-      </PokemonInfo>
+      </CardInfo>
     </CardLink>
   </Theme>
 )

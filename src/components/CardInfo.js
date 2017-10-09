@@ -5,6 +5,9 @@ const CardInfo = glamorous.div({
   padding: '1rem',
   borderBottomLeftRadius: '3px',
   borderBottomRightRadius: '3px'
-})
+}, ({ theme }) => ({
+  background: theme.primary,
+  color: theme.text
+}))
 
 export default CardInfo
